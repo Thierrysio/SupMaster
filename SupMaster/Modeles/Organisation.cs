@@ -78,6 +78,21 @@ namespace SupMaster.Modeles
             }
             return resultat;
         }
+
+        public List<string> GetListePropecteursParametres(int param)
+        {
+            List<string> resultat = new List<string>();
+            foreach(var keyvalue in this.GetNbVisitesParProspecteur())
+                if(keyvalue.Value >= param)
+                {
+                    resultat.Add(keyvalue.Key);
+                }
+            return resultat;
+        }
+        public string GetCodeEtablissementParRegion()
+        {
+            return this.GetLaRegion().GetLeEtablissement().GetCode(); ;
+        }
         #endregion
     }
 }
